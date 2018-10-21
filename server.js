@@ -24,25 +24,20 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-// second test
+// empty timestamp gives current date
 app.get("/api/timestamp/", function (req, res) {
+  let date = new Date();
   res.json({
-    one: "second",
-    two: "test"
+    "unix": date.getTime(), "utc": date.toUTCString()
   });
 });
 
 // timestamp setup
 app.get("/api/timestamp/:date_string", function (req, res) {
-//   take in time as parameter :timestamp
-//   pass to model to get string
-//   check what type and return correct string
   let dateString = req.params.date_string;
   let date = new Date();
-  if (!dateString) {
-    date = new Date();
-  } else {
-    date = new Date(req.params.date_string);
+  if (dateString) {
+    date = new Date(dateString);
   }
   res.json({
     "unix": date.getTime(), "utc": date.toUTCString()
