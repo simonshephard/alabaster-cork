@@ -33,10 +33,11 @@ app.get("/api/test", function (req, res) {
 });
 
 // timestamp setup
-app.get("/api/timestamp/time", function (req, res) {
+app.get("/api/timestamp/:date_string", function (req, res) {
 //   take in time as parameter :timestamp
 //   pass to model to get string
 //   check what type and return correct string
+  let newDate = new Date(date_string);
   res.json({
     "unix": 1451001600000, "utc": "Fri, 25 Dec 2015 00:00:00 GMT"
   });
