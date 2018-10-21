@@ -25,8 +25,21 @@ app.get("/api/hello", function (req, res) {
 });
 
 // second test
-app.get("/api/hello", function (req, res) {
-  res.json({greeting: 'hello API'});
+app.get("/api/test", function (req, res) {
+  res.json({
+    one: "second",
+    two: "test"
+  });
+});
+
+// timestamp setup
+app.get("/api/timestamp/time", function (req, res) {
+//   take in time as parameter :timestamp
+//   pass to model to get string
+//   
+  res.json({
+    "unix": 1451001600000, "utc": "Fri, 25 Dec 2015 00:00:00 GMT"
+  });
 });
 
 
