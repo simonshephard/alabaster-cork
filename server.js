@@ -24,7 +24,7 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-// empty timestamp gives current date
+// empty timestamp string gives current date
 app.get("/api/timestamp/", function (req, res) {
   let date = new Date();
   res.json({
@@ -32,13 +32,9 @@ app.get("/api/timestamp/", function (req, res) {
   });
 });
 
-// timestamp setup
+// timestamp - valid gives formatted output - invalid gives null, invalid date output
 app.get("/api/timestamp/:date_string", function (req, res) {
-  let dateString = req.params.date_string;
-  let date = new Date();
-  if (dateString) {
-    date = new Date(dateString);
-  }
+  let date = new Date(req.params.date_string);
   res.json({
     "unix": date.getTime(), "utc": date.toUTCString()
   });

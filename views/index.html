@@ -30,15 +30,17 @@
 
         <h3>Example Usage:</h3>
         <ul>
-          <li>
-            <code>https://alabaster-cork.glitch.me/api/timestamp/2015-12-25</code></li>
-          <li><code>https://alabaster-cork.glitch.me/api/timestamp/1450137600</code></li>
+          <li>Empty:  <code>https://alabaster-cork.glitch.me/api/timestamp/</code></li>
+          <li>Valid:  <code>https://alabaster-cork.glitch.me/api/timestamp/2015-12-25</code></li>
+          <li>Invalid:  <code>https://alabaster-cork.glitch.me/api/timestamp/1450137600</code></li>
         </ul>
 
         <h3>Example Output:</h3>
-        <p>
-          <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
-        </p>
+        <ul>
+          <li>Empty:  <code>{"unix": [current date time value], "utc": ["current date time string"] }</code></li>
+          <li>Valid:  <code><code>{"unix": 1451001600000, "utc": "Fri, 25 Dec 2015 00:00:00 GMT" }</code></code></li>
+          <li>Invalid:  <code>{"unix": null, "utc" : "Invalid Date" }</code></li>
+        </ul>
       </div>
       <div class="footer">
         <p>
