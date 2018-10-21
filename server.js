@@ -25,7 +25,7 @@ app.get("/api/hello", function (req, res) {
 });
 
 // second test
-app.get("/api/test", function (req, res) {
+app.get("/api/timestamp/", function (req, res) {
   res.json({
     one: "second",
     two: "test"
@@ -37,7 +37,13 @@ app.get("/api/timestamp/:date_string", function (req, res) {
 //   take in time as parameter :timestamp
 //   pass to model to get string
 //   check what type and return correct string
-  let date = new Date(req.params.date_string);
+  let dateString = req.params.date_string;
+  let date = new Date();
+  if (!dateString) {
+    date = new Date();
+  } else {
+    date = new Date(req.params.date_string);
+  }
   res.json({
     "unix": date.getTime(), "utc": date.toUTCString()
   });
